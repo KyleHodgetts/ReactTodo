@@ -49,4 +49,49 @@ describe ('TodoAPI', () => {
       expect(TodoAPI.getTodos()).toEqual(todos);
     });
   });
+
+  describe ('filterTodos', () => {
+    let todos = [
+      {
+        id: 1,
+        text: 'some text',
+        completed: true
+      },
+      {
+        id: 2,
+        text: 'other text',
+        completed: false
+      },
+      {
+        id: 3,
+        text: 'more stuff',
+        completed: false
+      }
+    ];
+
+    it ('should return all items if show completed is true', () => {
+      let filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      expect(filteredTodos.length).toBe(3);
+    });
+
+    it ('should return non-completed items if show completed is false', () => {
+      let filteredTodos = TodoAPI.filterTodos(todos, false, '');
+      expect(filteredTodos.length).toBe(2);
+    });
+
+    it ('should sort by completed status (non-completed first)', () => {
+      let filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      expect(filteredTodos[0].completed).toBe(false);
+    });
+
+    it ('should filter todos by search text', () => {
+      let filteredTodos = TodoAPI.filterTodos(todos, true, 'text');
+      expect(filteredTodos.length).toBe(2);
+    });
+
+    it ('should return all items if search text is empty', () => {
+      let filteredTodos = TodoAPI.filterTodos(todos, true, '');
+      expect(filteredTodos.length).toBe(3);
+    });
+  });
 });

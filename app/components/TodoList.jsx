@@ -7,7 +7,7 @@ export default class TodoList extends React.Component {
     let renderTodos = () => {
       return todos.map((todo) => {
         return (
-          <Todo key={todo.id} {...todo}/>
+          <Todo key={todo.id} {...todo} onToggle={this.props.onToggle} />
         );
       });
     }
@@ -20,5 +20,6 @@ export default class TodoList extends React.Component {
 }
 
 TodoList.propTypes = {
-  todos: React.PropTypes.array.isRequired
+  todos: React.PropTypes.array.isRequired,
+  onToggle: React.PropTypes.func.isRequired
 };

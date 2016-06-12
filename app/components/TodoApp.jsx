@@ -70,6 +70,11 @@ export default class TodoApp extends React.Component {
             </div>
           </div>
         </div>
+        <footer className="footer">
+          <p>Made by <a target="_blank" href="https://github.com/KyleHodgetts">Kyle Hodgetts</a></p>
+          |
+          <p><a target="_blank" href="https://github.com/KyleHodgetts/ReactTodo">Source Code</a></p>
+        </footer>
       </div>
     );
   }

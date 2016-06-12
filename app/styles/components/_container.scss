@@ -19,7 +19,12 @@
     align-items: center;
     display: flex;
   }
+}
 
+.container__message {
+  color: $light-color;
+  margin: 2rem auto;
+  text-align: center;
 }
 
 .container__footer {
